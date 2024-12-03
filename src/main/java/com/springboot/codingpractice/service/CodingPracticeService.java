@@ -63,12 +63,12 @@ public class CodingPracticeService {
 
     // 문제8. 문자열 돌리기
     public String problem8(String inputStr) throws Exception {
-        String result = "";
+        StringBuilder result = new StringBuilder();
         if (1 <= inputStr.length() && inputStr.length() <= 10) {
             for (char c : inputStr.toCharArray()) {
-                result += c + "\n";
+                result.append(c).append("\n");
             }
-            return result;
+            return result.toString();
         } else {
             throw new IllegalArgumentException("문자열은 1글자에서 10글자이내로 입력해주세요.");
         }
@@ -94,5 +94,67 @@ public class CodingPracticeService {
         } else {
             throw new IllegalArgumentException("1 ~ 1000 이내로 입력해주세요.");
         }
+    }
+
+    // 문제11. 문자열섞기
+    public String problem11(String inputStr, String inputStr2) throws Exception {
+        StringBuilder result = new StringBuilder();
+
+        if (1 <= inputStr.length() && inputStr.length() == inputStr2.length() && inputStr.length() <= 10) {
+            for (int i = 0; i < inputStr.length(); i++) {
+                result.append(inputStr.charAt(i));
+                result.append(inputStr2.charAt(i));
+            }
+            return result.toString().toLowerCase();
+        } else {
+            throw new IllegalArgumentException("1 ~ 10 글자로 입력해주세요.");
+        }
+    }
+
+    // 문제12. 문자리스트를 문자열로 변환하기
+    public String problem12(String[] inputStr) throws Exception {
+        StringBuilder result = new StringBuilder();
+
+        if (1 <= inputStr.length && inputStr.length <= 100) {
+            for (String c : inputStr) {
+                result.append(c);
+            }
+            return result.toString().toLowerCase();
+        } else {
+            throw new IllegalArgumentException("1 ~ 100 글자로 입력해주세요.");
+        }
+    }
+
+    // 문제13. 문자열 곱하기
+    public String problem13(String inStr, int inVal) {
+        return inStr.repeat(inVal);
+    }
+
+    // 문제14. 더 크게 합치기
+    public String problem14(int inVal, int inVal2) throws Exception {
+        String result = "";
+        int compareVal = Integer.parseInt(inVal + "" + inVal2);
+        int compareVal2 = Integer.parseInt(inVal2 + "" + inVal);
+        if (1 <= inVal && inVal2 <= 10000) {
+            result = (compareVal > compareVal2) ? ""+compareVal : ""+compareVal2;
+        } else {
+            throw new IllegalArgumentException("inVal값은 1보다 크게 inVal2값은 10000보다 작게 입력해주세요.");
+        }
+
+        return result;
+    }
+
+    // 문제15. 두 수의 연산값 비교하기
+    public String problem15(int inVal, int inVal2) throws Exception {
+        String result = "";
+        int compareVal = Integer.parseInt(inVal + "" + inVal2);
+        int compareVal2 = 2 * inVal * inVal2;
+        if (1 <= inVal && inVal2 <= 10000) {
+            result = (compareVal > compareVal2) ? ""+compareVal : ""+compareVal2;
+        } else {
+            throw new IllegalArgumentException("inVal값은 1보다 크게 inVal2값은 10000보다 작게 입력해주세요.");
+        }
+
+        return result;
     }
 }

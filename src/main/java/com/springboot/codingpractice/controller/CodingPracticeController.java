@@ -131,4 +131,63 @@ public class CodingPracticeController {
         }
         return result;
     }
+
+    @Operation(summary = "문제11. 문자열섞기")
+    @GetMapping("/problem11")
+    public String problem11(
+            @Parameter(description = "첫번째 문자열 입력") @RequestParam String inputStr,
+            @Parameter(description = "두번째 문자열 입력") @RequestParam String inputStr2) {
+        String result = "";
+        try {
+            result = codingPracticeService.problem11(inputStr, inputStr2);
+        } catch (Exception e) {
+            throw new IllegalArgumentException(e.getMessage());
+        }
+        return result;
+    }
+
+    @Operation(summary = "문제12. 문자리스트를 문자열로 변환하기")
+    @GetMapping("/problem12")
+    public String problem12(
+            @Parameter(description = "첫번째 문자리스트 입력") @RequestParam String[] inputStr) {
+        String result = "";
+        try {
+            result = codingPracticeService.problem12(inputStr);
+        } catch (Exception e) {
+            throw new IllegalArgumentException(e.getMessage());
+        }
+        return result;
+    }
+
+    @Operation(summary = "문제13. 문자열 곱하기")
+    @GetMapping("/problem13")
+    public String problem13(
+            @Parameter(description = "문자열 입력") @RequestParam String inStr,
+            @Parameter(description = "곱하기할 숫자 입력") @RequestParam int inVal) {
+        return codingPracticeService.problem13(inStr, inVal);
+    }
+
+    @Operation(summary = "문제14. 더 크게 합치기")
+    @GetMapping("/problem14")
+    public String problem14(
+            @Parameter(description = "첫번째 숫자 입력") @RequestParam int inVal,
+            @Parameter(description = "두번째 숫자 입력") @RequestParam int inVal2) {
+        try {
+            return codingPracticeService.problem14(inVal, inVal2);
+        } catch (Exception e) {
+            throw new IllegalArgumentException(e.getMessage());
+        }
+    }
+
+    @Operation(summary = "문제15. 두 수의 연산값 비교하기")
+    @GetMapping("/problem15")
+    public String problem15(
+            @Parameter(description = "첫번째 숫자 입력") @RequestParam int inVal,
+            @Parameter(description = "두번째 숫자 입력") @RequestParam int inVal2) {
+        try {
+            return codingPracticeService.problem15(inVal, inVal2);
+        } catch (Exception e) {
+            throw new IllegalArgumentException(e.getMessage());
+        }
+    }
 }
